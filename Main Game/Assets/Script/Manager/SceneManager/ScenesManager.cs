@@ -22,7 +22,9 @@ public class ScenesManager : MonoBehaviour
         ShopScene,
         PotionShop,
         Home,
-        AdventureGuild
+        AdventureGuild,
+        Arena,
+        Combat
     }
 
     public void LoadScene(Scene scene)
@@ -45,6 +47,7 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(Scene.MainMenu.ToString());
     }
+
 
     public void QuitGame()
     {
