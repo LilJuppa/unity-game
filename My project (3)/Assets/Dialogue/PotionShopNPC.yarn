@@ -1,5 +1,13 @@
 ﻿title: PotionShopNPC
 tags:
 ---
-Nior:
+Nior: What do you need?
+-> About potion that enhance healing speed...
+    Nior: Potions to enhance healing speed, you say? 
+    Nior: Now that's a challenging field. To create potions that rapidly restore vitality, one must consider various factors, including the purity, concentration, and blending ratios of the herbs. 
+    Nior: I can provide you with some related recipes, but you must handle them with care to avoid becoming overly reliant on these potions. Remember, true power comes from within yourself.
+-> About your alchemy skill..
+    Nior: My skills? Hehe, young one, are you interested in my craftsmanship? 
+    Nior: Alchemy is my passion and my innate talent. After decades of study and practice, I've acquired a considerable repertoire of alchemical techniques and knowledge. 
+    Nior: If you're interested, I can share some stories and techniques about alchemy. Just remember, it's an art that requires patience and focus.
 ===

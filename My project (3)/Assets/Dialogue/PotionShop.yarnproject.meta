@@ -12,7 +12,7 @@ ScriptedImporter:
   - {fileID: 6391573757903218779, guid: b3da8e82065f63742b59473f0c4b34ba, type: 3}
   compileErrors: []
   serializedDeclarations: []
-  defaultLanguage: en-US
+  defaultLanguage: en
   languagesToSourceAssets: []
   useAddressableAssets: 0
   searchAllAssembliesForActions: 1
