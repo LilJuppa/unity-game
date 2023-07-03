@@ -38,6 +38,7 @@ public class CharacterYarn : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
+        Debug.Log("CLicked");
         if (interactable && !dialogueRunner.IsDialogueRunning)
         {
             StartConversation();
@@ -76,16 +77,26 @@ public class CharacterYarn : MonoBehaviour, IPointerClickHandler
         //    dialogueRunner.StartDialogue("merchantDefault");
         //}
 
-        if (curDialogue == 1)
-        {
-            dialogueRunner.StartDialogue("First");
-            curDialogue = 2;
+        if(conversationStartNode == "Boy") {
+
+            if (curDialogue == 1)
+            {
+                dialogueRunner.StartDialogue("First");
+                curDialogue = 2;
+            }
+            else if (curDialogue == 2)
+            {
+                dialogueRunner.StartDialogue("Second");
+                curDialogue = 1;
+            }
         }
-        else if(curDialogue == 2)
+        else
         {
-            dialogueRunner.StartDialogue("Second");
-            curDialogue = 1;
+            dialogueRunner.StartDialogue(conversationStartNode);
         }
+        
+
+
 
     }
 
