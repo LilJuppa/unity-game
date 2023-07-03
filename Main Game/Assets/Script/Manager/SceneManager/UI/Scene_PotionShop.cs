@@ -9,7 +9,9 @@ public class Scene_PotionShop : MonoBehaviour
     [SerializeField] Button MainMenu;
     [SerializeField] Button Home;
     [SerializeField] Button AdventureGuild;
+    [SerializeField] Button Arena;
     [SerializeField] Button Quit;
+    [SerializeField] Button Combat;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,10 @@ public class Scene_PotionShop : MonoBehaviour
             AdventureGuild.onClick.AddListener(GoAdventureGuild);
         if (Quit)
             Quit.onClick.AddListener(QuitGame);
+        if (Arena)
+            Arena.onClick.AddListener(GoArena);
+        if (Combat)
+            Combat.onClick.AddListener(GoCombat);
 
     }
 
@@ -36,6 +42,15 @@ public class Scene_PotionShop : MonoBehaviour
         ScenesManager.Instance.LoadMainMenu();
     }
 
+    private void GoArena()
+    {
+        ScenesManager.Instance.LoadScene(ScenesManager.Scene.Arena);
+    }
+
+    private void GoCombat()
+    {
+        ScenesManager.Instance.LoadScene(ScenesManager.Scene.Combat);
+    }
 
     private void GoHome()
     {

@@ -36,7 +36,7 @@ Player: Hello
 ===
 
 
-// Merchant Idle Dialogue
+
 
 title: Second
 ---
@@ -51,3 +51,11 @@ Boy: How are you doing today?
 
 ===
 
+
+//ARENA
+
+title: ArenaNPC
+---
+Arena Referee: Fight for wealth and glory!
+
+===
