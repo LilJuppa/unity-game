@@ -1,0 +1,49 @@
+{
+"shopdata":[
+    {
+        "id": 0,
+        "itempath": "ItemAsset/Potion/Potion01",
+        "currentstate": 1,
+        "quantity": 10,
+        "israndom": false,
+        "randomstart": 0,
+        "randomend": 0
+    },
+    {
+        "id": 1,
+        "itempath": "ItemAsset/Potion/Potion02",
+        "currentstate": 1,
+        "quantity": 10,
+        "israndom": false,
+        "randomstart": 0,
+        "randomend": 0
+    },
+    {
+        "id": 2,
+        "itempath": "ItemAsset/Potion/BloodPotion",
+        "currentstate": 1,
+        "quantity": 10,
+        "israndom": false,
+        "randomstart": 0,
+        "randomend": 0
+    },
+    {
+        "id": 3,
+        "itempath": "ItemAsset/Potion/BluePotion",
+        "currentstate": 1,
+        "quantity": 10,
+        "israndom": false,
+        "randomstart": 0,
+        "randomend": 0
+    },
+    {
+        "id": 4,
+        "itempath": "ItemAsset/Potion/GreenPotion",
+        "currentstate": 1,
+        "quantity": 10,
+        "israndom": false,
+        "randomstart": 0,
+        "randomend": 0
+    }
+]
+}

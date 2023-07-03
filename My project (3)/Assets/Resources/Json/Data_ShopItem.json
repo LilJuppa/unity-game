@@ -1,0 +1,47 @@
+{
+    "itemdatas":[
+       {
+          "ItemID": 0,
+          "ItemName": "item1",
+          "ItemImageString": "Sprites/345",
+          "Stackable": true,
+          "ItemDescription": "Hello"
+       },
+       {
+          "ItemID": 1,
+          "ItemName": "item2",
+          "ItemImageString": "Sprites/345",
+          "Stackable": true,
+          "ItemDescription": "I am a potion"
+       },
+       {
+          "ItemID": 2,
+          "ItemName": "item3",
+          "ItemImageString": "Sprites/345",
+          "Stackable": true,
+          "ItemDescription": "Yeah"
+       },
+       {
+          "ItemID": 3,
+          "ItemName": "item4",
+          "ItemImageString": "Sprites/345",
+          "Stackable": true,
+          "ItemDescription": "Yeah"
+       },
+       {
+          "ItemID": 4,
+          "ItemName": "item5",
+          "ItemImageString": "Sprites/345",
+          "Stackable": true,
+          "ItemDescription": "Yeah"
+       },
+       {
+          "ItemID": 5,
+          "ItemName": "item6",
+          "ItemImageString": "Sprites/345",
+          "Stackable": true,
+          "ItemDescription": "Yeah"
+       }
+    ]
+ }
+ 

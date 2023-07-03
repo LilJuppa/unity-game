@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu/MainMenu.unity
+    guid: f736d078d37f70f438736864b9b1a021
+  - enabled: 1
+    path: Assets/Scenes/Map/Map.unity
+    guid: 7289b039cd3b41e49871abb5ebe8960c
+  - enabled: 1
+    path: Assets/Scenes/PotionShop/PotionShop.unity
+    guid: a872bda981489a44a8bd89d4536b6e60
+  - enabled: 1
+    path: Assets/Scenes/Home/Home.unity
+    guid: 21588b9a22d2aa3419fc7332113d392f
   m_configObjects: {}

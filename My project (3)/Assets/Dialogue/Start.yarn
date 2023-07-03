@@ -1,0 +1,53 @@
+﻿title: StartHere
+---
+Player: Another day in Space Fleet. Might go have a chat...
+Ghost: Welcome to the graveyard! Unfortunately, you're just in time for an unsolved mystery...
+Ghost: You'll have to speak to these three to figure out what happened!
+===
+
+title: TalkToEngineers
+---
+Engineer: Hello! I am the Engineer.
+<<jump BridgeEndings>>
+===
+
+title: BridgeEndings
+position: -28,120
+---
+// everyone reports to the bridge
+Captain: Pirates!
+Player: Oh no!
+// now change who goes depending on player actions
+
+<<if $away_mission_readiness < 2>>
+    Captain: Crewmate, go deal with those pirates!
+    Crewmate: Yes, Captain.
+<<else>>
+    Captain: Player, you were just telling me how ready for this you are. 
+    Captain: Go deal with those pirates!
+    Player: Hooray!
+<<endif>>
+===
+
+title: First
+---
+Player: Hello
+
+===
+
+
+// Merchant Idle Dialogue
+
+title: Second
+---
+Boy: How are you doing today?
+-> Good, How about you?
+    <<changeExpression boy 02>>
+    Boy: I am fine, thank you.
+-> I hate you
+    <<changeExpression boy 03>>
+    Boy: What did you say?
+<<changeExpression boy 01>>
+
+===
+
