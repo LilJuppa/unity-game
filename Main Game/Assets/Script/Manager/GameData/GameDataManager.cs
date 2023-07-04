@@ -91,6 +91,8 @@ public class GameDataManager
 public class Player
 {
     public string name;
+    public int EXP;
+    public int Lv;
     public int money;
     public int strength;
     public int intelligence;
