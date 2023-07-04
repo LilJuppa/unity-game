@@ -20,16 +20,17 @@ public class ShopManager
 
     #endregion
 
-    
 
-    public List<ItemContainerData> ItemContainerList = new List<ItemContainerData>();
+
+    public List<ItemContainerData> ItemContainerList;
     public delegate void OnInventoryChange();
     public OnInventoryChange onInventoryCallBack;
 
-    private void initializeShop()
+    public void initializeShop()
     {
 
-        ItemContainerList = GameDataManager.GetInstance().shopItemDataInitial;
+        ItemContainerList = GameDataManager.GetInstance().shopItemData.shopdata;
+
 
     }
 
