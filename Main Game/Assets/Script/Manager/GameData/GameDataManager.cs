@@ -14,80 +14,66 @@ public class GameDataManager
         if (instance == null)
         {
             instance = new GameDataManager();
-            instance.Init();
+            instance.LoadGame();
         }
             
         return instance;
     }
-    //private Dictionary<int, ItemContainerData> iteminfo = new();
-    public List<ItemContainerData> shopItemDataInitial = new();
 
     //玩家信息存儲路徑
-    private static string PlayerInfo_Path = Application.persistentDataPath + "/PlayerInfo.txt";
+    private static string GameInfo_Path = Application.persistentDataPath + "/GameInfo.txt";
+
+    
     public Player playerInfo;
+    public GameInfo gameInfo;
+    public ItemContainerDatas shopItemData;
 
-
-
-    public void Init()
+    public void SaveGameInfo()
     {
-        string shopdatastring = Resources.Load<TextAsset>("Json/ShopItemContainer").text;
-        ItemContainerDatas ContainerItemData = JsonUtility.FromJson<ItemContainerDatas>(shopdatastring);
+        Debug.Log("Creating a new save file");
+        string json = JsonUtility.ToJson(gameInfo);
+        Debug.Log(json);
+        File.WriteAllText(GameInfo_Path, json);
+    }
 
+    public void LoadGame()
+    {
 
-
-        for (int i = 0; i < ContainerItemData.shopdata.Count; ++i)
+        if (File.Exists(GameInfo_Path))
         {
-            //if (!iteminfo.ContainsKey(ContainerItemData.shopdata[i].id))
-            //{
-            //    iteminfo.Add(ContainerItemData.shopdata[i].id, ContainerItemData.shopdata[i]);
-                
-            //}
-            shopItemDataInitial.Add(ContainerItemData.shopdata[i]);
-
-        }
-
-        //初始化 角色信息
-        if (File.Exists(PlayerInfo_Path))
-        {
-            //讀出指定路徑的文件，轉成string，再轉成玩家的數據
-            byte[] bytes = File.ReadAllBytes(PlayerInfo_Path);
-            string json = Encoding.UTF8.GetString(bytes);
-            playerInfo = JsonUtility.FromJson<Player>(json);
-
+            //byte[] bytes = File.ReadAllBytes(PlayerInfo_Path);
+            string json = File.ReadAllText(GameInfo_Path);
+            gameInfo = JsonUtility.FromJson<GameInfo>(json);
         }
         else
         {
-            Debug.Log("Player info don't exist");
-            //沒有玩家數據時，初始化一個默認數據
-            playerInfo = new Player();
-            //並存儲
-            SavePlayerInfo();
+            Debug.Log("Game info don't exist");
+            gameInfo = new GameInfo();
+            SaveGameInfo();
         }
+        playerInfo = gameInfo.playerinfo;
+        shopItemData = gameInfo.shopItemData;
 
         PlayerInfoManager.GetInstance().init();
+        ShopManager.GetInstance().initializeShop();
     }
-
-    //保存玩家信息
-    public void SavePlayerInfo()
-    {
-        Debug.Log("Creating a new save file");
-        string json = JsonUtility.ToJson(playerInfo);
-        File.WriteAllBytes(PlayerInfo_Path, Encoding.UTF8.GetBytes(json));
-    }
-
-    //public ItemContainerData GetItemInfo(int id)
-    //{
-    //    if (iteminfo.ContainsKey(id))
-    //        return iteminfo[id];
-    //    return null;
-    //}
 }
 
 
 
+public class GameInfo
+{
+    public Player playerinfo;
+    public ItemContainerDatas shopItemData;
+    public GameInfo()
+    {
+        playerinfo = new Player();
+        shopItemData = new ItemContainerDatas();
+    }
+}
 
 
-    //Player Basic Info
+[System.Serializable]    //Player Basic Info
 public class Player
 {
     public string name;
@@ -121,33 +107,49 @@ public class Player
 }
 
 
+[System.Serializable]
+public class ItemContainerDatas
+{
+    //employees is case sensitive and must match the string "employees" in the JSON.
+    public List<ItemContainerData> shopdata;
 
-    public class ItemContainerDatas
+    public ItemContainerDatas()
     {
-        //employees is case sensitive and must match the string "employees" in the JSON.
-        public List<ItemContainerData> shopdata;
-
-    }
-
-
-    [System.Serializable]
-    public class ItemContainerData
-    {
-
-        //these variables are case sensitive and must match the strings "firstName" and "lastName" in the JSON.
-        public string itempath;
-        public int currentstate;
-        public int quantity = 1;
-        public bool israndom = false;
-        public int randomstart = 0;
-        public int randomend = 0;
-
-        public ItemContainerData(string _itempath, int _currentstate, int _quantity)
+        shopdata = new List<ItemContainerData>()
         {
-            itempath = _itempath;
-            currentstate = _currentstate;
-            quantity = _quantity;      
-        }
-
+            new ItemContainerData("ItemAsset/Potion/BloodPotion", 1, 1),
+            new ItemContainerData("ItemAsset/Potion/BluePotion", 1, 2),
+            new ItemContainerData("ItemAsset/Potion/GreenPotion", 1, 3)
+        };
     }
+
+
+
+}
+
+
+[System.Serializable]
+public class ItemContainerData
+{
+
+    //these variables are case sensitive and must match the strings "firstName" and "lastName" in the JSON.
+    public string itempath;
+    public int currentstate;
+    public int quantity = 1;
+    public bool israndom = false;
+    public int randomstart = 0;
+    public int randomend = 0;
+        
+
+        
+
+    public ItemContainerData(string _itempath, int _currentstate, int _quantity)
+    {
+        itempath = _itempath;
+        currentstate = _currentstate;
+        quantity = _quantity;      
+    }
+
+}
+
 
