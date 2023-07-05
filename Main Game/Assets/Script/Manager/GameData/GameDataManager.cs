@@ -14,7 +14,6 @@ public class GameDataManager
         if (instance == null)
         {
             instance = new GameDataManager();
-            instance.LoadGame();
         }
             
         return instance;
@@ -31,14 +30,14 @@ public class GameDataManager
     public void SaveGameInfo()
     {
         Debug.Log("Creating a new save file");
+        gameInfo = new GameInfo(playerInfo, shopItemData);
         string json = JsonUtility.ToJson(gameInfo);
-        Debug.Log(json);
         File.WriteAllText(GameInfo_Path, json);
     }
 
-    public void LoadGame()
+    public void LoadGame(string savePath)
     {
-
+        GameInfo_Path = Application.persistentDataPath + savePath;
         if (File.Exists(GameInfo_Path))
         {
             //byte[] bytes = File.ReadAllBytes(PlayerInfo_Path);
@@ -69,6 +68,11 @@ public class GameInfo
     {
         playerinfo = new Player();
         shopItemData = new ItemContainerDatas();
+    }
+    public GameInfo(Player newPlayer, ItemContainerDatas newItems)
+    {
+        playerinfo = newPlayer;
+        shopItemData = newItems;
     }
 }
 
@@ -121,6 +125,11 @@ public class ItemContainerDatas
             new ItemContainerData("ItemAsset/Potion/BluePotion", 1, 2),
             new ItemContainerData("ItemAsset/Potion/GreenPotion", 1, 3)
         };
+    }
+
+    public ItemContainerDatas(List<ItemContainerData> newList)
+    {
+        shopdata = newList;
     }
 
 
