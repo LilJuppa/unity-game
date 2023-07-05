@@ -38,7 +38,6 @@ public class CharacterYarn : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        Debug.Log("CLicked");
         if (interactable && !dialogueRunner.IsDialogueRunning)
         {
             StartConversation();
