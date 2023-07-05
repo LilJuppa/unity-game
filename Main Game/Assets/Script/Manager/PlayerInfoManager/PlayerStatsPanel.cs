@@ -10,7 +10,6 @@ public class PlayerStatsPanel : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Pannel Started");
         //onInventoryCallBack subcribe UpdateUI, so whenever I call onInventoryCallBack, UpdateUI will also execute.
         PlayerInfoManager.GetInstance().onPlayerInfoCallBack += UpdateUI;
         UIslots = InventoryParent.GetComponentsInChildren<StatsUI>();
