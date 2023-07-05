@@ -101,6 +101,11 @@ public class SettingUI : MonoBehaviour
         GameDataManager.GetInstance().SaveGameInfo();
     }
 
+    public void toMainMenu()
+    {
+        ScenesManager.Instance.LoadScene(ScenesManager.Scene.MainMenu);
+    }
+
     //private void OnResolutionChanged(int resolution)
     //{
     //    // 取得選擇的解析度
