@@ -80,6 +80,27 @@ public class SettingUI : MonoBehaviour
 
     }
 
+    public void save()
+    {
+        GameDataManager dtmgr = GameDataManager.GetInstance();
+        PlayerInfoManager plmgr = PlayerInfoManager.GetInstance();
+        ShopManager shopmgr = ShopManager.GetInstance();
+
+
+        //save player data
+        dtmgr.playerInfo.money = plmgr.playerstats[PlayerInfoManager.PlayerStats.Money];
+        dtmgr.playerInfo.strength = plmgr.playerstats[PlayerInfoManager.PlayerStats.Strength];
+        dtmgr.playerInfo.intelligence = plmgr.playerstats[PlayerInfoManager.PlayerStats.Intelligence];
+        dtmgr.playerInfo.faith = plmgr.playerstats[PlayerInfoManager.PlayerStats.Faith];
+        dtmgr.playerInfo.charisma = plmgr.playerstats[PlayerInfoManager.PlayerStats.Charisma];
+        dtmgr.playerInfo.Insight = plmgr.playerstats[PlayerInfoManager.PlayerStats.Insight];
+
+        //save shop data
+        dtmgr.shopItemData = new ItemContainerDatas(shopmgr.ItemContainerList);
+
+        GameDataManager.GetInstance().SaveGameInfo();
+    }
+
     //private void OnResolutionChanged(int resolution)
     //{
     //    // 取得選擇的解析度
