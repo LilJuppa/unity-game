@@ -71,8 +71,6 @@ public class ItemContainer : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
                 case ItemState.inShop:
                     //當物品狀態是在商店裡時
-                    Debug.Log("My Money" + playerInfo.playerstats[PlayerInfoManager.PlayerStats.Money]);
-
                     if (playerInfo.playerstats[PlayerInfoManager.PlayerStats.Money] >= thisItem.Price)
                     {
                         playerInfo.playerstats[PlayerInfoManager.PlayerStats.Money] -= thisItem.Price;

@@ -25,7 +25,7 @@ public class InventoryManager
     public OnInventoryChange onInventoryCallBack;
 
     //設置打開inventory時包包裡裝的物品
-    private void initializeInventory()
+    public void initializeInventory()
     {
         ItemContainerList = GameDataManager.GetInstance().playerInfo.items;
     }

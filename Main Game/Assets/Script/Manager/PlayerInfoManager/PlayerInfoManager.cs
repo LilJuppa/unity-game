@@ -61,7 +61,10 @@ public class PlayerInfoManager
 
 
         curPlayerName = GameDataManager.GetInstance().playerInfo.name;
- 
+
+
+
+
     }
 
 
