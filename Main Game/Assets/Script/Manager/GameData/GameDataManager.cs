@@ -20,12 +20,12 @@ public class GameDataManager
     }
 
     //玩家信息存儲路徑
-    private static string GameInfo_Path = Application.persistentDataPath + "/GameInfo.txt";
+    private static string GameInfo_Path;
 
-    
-    public Player playerInfo = new();
-    public GameInfo gameInfo = new();
-    public ItemContainerDatas shopItemData = new();
+
+    public Player playerInfo;
+    public GameInfo gameInfo;
+    public ItemContainerDatas shopItemData;
 
     public void SaveGameInfo()
     {
@@ -38,6 +38,7 @@ public class GameDataManager
     public void LoadGame(string savePath)
     {
         GameInfo_Path = Application.persistentDataPath + savePath;
+        
         if (File.Exists(GameInfo_Path))
         {
             //byte[] bytes = File.ReadAllBytes(PlayerInfo_Path);
@@ -48,13 +49,15 @@ public class GameDataManager
         {
             Debug.Log("Game info don't exist");
             gameInfo = new GameInfo();
-            SaveGameInfo();
+            string json = JsonUtility.ToJson(gameInfo);
+            File.WriteAllText(GameInfo_Path, json);
         }
         playerInfo = gameInfo.playerinfo;
         shopItemData = gameInfo.shopItemData;
 
         PlayerInfoManager.GetInstance().init();
         ShopManager.GetInstance().initializeShop();
+        InventoryManager.GetInstance().initializeInventory();
     }
 }
 

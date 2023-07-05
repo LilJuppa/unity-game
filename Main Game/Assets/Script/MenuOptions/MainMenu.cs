@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     // Start is called before the first frame update
+    private void Awake()
+    {
+    }
     public void PlayGame()
     {
         GameDataManager.GetInstance().LoadGame("/Save1/GameInfo.txt");
