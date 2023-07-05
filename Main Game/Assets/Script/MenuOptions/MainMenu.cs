@@ -19,17 +19,17 @@ public class MainMenu : MonoBehaviour
 
     public void LoadSave1()
     {
-        GameDataManager.GetInstance().LoadGame("/Save1/GameInfo.txt");
+        GameDataManager.GetInstance().LoadGame("/GameInfo1.txt");
         ScenesManager.Instance.LoadScene(ScenesManager.Scene.Map);
     }
     public void LoadSave2()
     {
-        GameDataManager.GetInstance().LoadGame("/Save2/GameInfo.txt");
+        GameDataManager.GetInstance().LoadGame("/GameInfo2.txt");
         ScenesManager.Instance.LoadScene(ScenesManager.Scene.Map);
     }
     public void LoadSave3()
     {
-        GameDataManager.GetInstance().LoadGame("/Save3/GameInfo.txt");
+        GameDataManager.GetInstance().LoadGame("/GameInfo3.txt");
         ScenesManager.Instance.LoadScene(ScenesManager.Scene.Map);
     }
 }

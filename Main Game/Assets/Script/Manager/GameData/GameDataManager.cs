@@ -23,9 +23,9 @@ public class GameDataManager
     private static string GameInfo_Path = Application.persistentDataPath + "/GameInfo.txt";
 
     
-    public Player playerInfo;
-    public GameInfo gameInfo;
-    public ItemContainerDatas shopItemData;
+    public Player playerInfo = new();
+    public GameInfo gameInfo = new();
+    public ItemContainerDatas shopItemData = new();
 
     public void SaveGameInfo()
     {
