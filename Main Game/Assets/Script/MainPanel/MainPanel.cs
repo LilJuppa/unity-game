@@ -44,15 +44,5 @@ public class MainPanel : MonoBehaviour
             }
         }
     }
-    //void OpenInventory()
-    //{
-    //    inventoryPanel.SetActive(true);
-    //    // 在這裡可以添加其他打開背包的相關邏輯
-    //}
 
-    //void CloseInventory()
-    //{
-    //    inventoryPanel.SetActive(false);
-    //    // 在這裡可以添加其他關閉背包的相關邏輯
-    //}
 }
